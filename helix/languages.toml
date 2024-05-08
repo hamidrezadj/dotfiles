@@ -1,0 +1,17 @@
+# [[language]]
+# name = "toml"
+# language-servers = ["taplo"]
+# formatter = { command = "taplo", args = ["format", "-"] }
+# auto-format = true
+# [language-server.taplo]
+# command = "taplo lsp"
+# args = ["stdio"]
+
+[[language]]
+name = "json"
+auto-format = false
+
+[[language]]
+name = "nix"
+formatter = { command = "nixfmt" }
+auto-format = true
