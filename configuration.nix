@@ -254,6 +254,7 @@ in
       keepassxc
       denaro
       libreoffice
+      usbutils
       pciutils
       lshw
       glxinfo
