@@ -245,30 +245,7 @@ in
       "scanner"
     ];
     hashedPassword = user.hashedPassword;
-    packages = with pkgs; [
-      firefox
-      thunderbird
-      tor-browser
-      maestral
-      maestral-gui
-      keepassxc
-      denaro
-      libreoffice
-      eza
-      usbutils
-      pciutils
-      lshw
-      glxinfo
-      tldr
-      bat
-      lazygit
-      lutris
-      mangohud
-      gnomeExtensions.appindicator
-      gnomeExtensions.persian-calendar
-      gnome.dconf-editor
-      taplo
-    ];
+    # packages = with pkgs; [ ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -288,7 +265,6 @@ in
     exfat
     gparted
   ];
-  programs.starship.enable = true;
   programs.git.enable = true;
   programs.dconf.enable = true;
   # programs.steam.enable = true;
@@ -309,7 +285,30 @@ in
     {
       home.stateVersion = "23.11";
 
-      # home.packages = with pkgs; [];
+      home.packages = with pkgs; [
+        firefox
+        thunderbird
+        tor-browser
+        maestral
+        maestral-gui
+        keepassxc
+        denaro
+        libreoffice
+        eza
+        usbutils
+        pciutils
+        lshw
+        glxinfo
+        tldr
+        bat
+        lazygit
+        lutris
+        mangohud
+        gnomeExtensions.appindicator
+        gnomeExtensions.persian-calendar
+        gnome.dconf-editor
+        taplo
+      ];
 
       nix.gc = {
         automatic = nixGCAutomatic;
@@ -318,6 +317,7 @@ in
       };
 
       programs.bash.enable = true;
+      programs.starship.enable = true;
       programs.direnv.enable = true;
       programs.bash.shellAliases = {
         ll = "ls -l";
