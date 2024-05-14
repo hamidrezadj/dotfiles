@@ -1,4 +1,3 @@
-These are my personal configuration files.
 ## NixOs
 There's a flake available to configure the whole system all at once.
 ### Installation
