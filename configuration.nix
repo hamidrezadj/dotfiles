@@ -254,6 +254,7 @@ in
       keepassxc
       denaro
       libreoffice
+      eza
       usbutils
       pciutils
       lshw
@@ -320,6 +321,8 @@ in
       programs.bash.shellAliases = {
         ll = "ls -l";
         lla = "ls -lha";
+        eza = "eza --icons --group-directories-first --git --git-repos --header --long";
+        ezaa = "eza --icons --group-directories-first --git --git-repos --header --long --all";
         lg = "lazygit";
         sudo = "sudo ";
         noscd = "cd ${dotFilesDirectory}";
