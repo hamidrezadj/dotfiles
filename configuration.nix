@@ -317,8 +317,11 @@ in
       };
 
       programs.bash.enable = true;
+      programs.nushell.enable = true;
       programs.starship.enable = true;
+      programs.starship.enableNushellIntegration = true;
       programs.direnv.enable = true;
+      programs.direnv.enableNushellIntegration = true;
       programs.bash.shellAliases = {
         ll = "ls -l";
         lla = "ls -lha";
