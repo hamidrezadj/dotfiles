@@ -318,6 +318,7 @@ in
       };
 
       programs.bash.enable = true;
+      programs.direnv.enable = true;
       programs.bash.shellAliases = {
         ll = "ls -l";
         lla = "ls -lha";
