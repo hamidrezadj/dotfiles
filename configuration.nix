@@ -294,6 +294,7 @@ in
         keepassxc
         denaro
         libreoffice
+        foliate
         eza
         usbutils
         pciutils
