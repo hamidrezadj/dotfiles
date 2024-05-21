@@ -559,7 +559,8 @@ in
   };
 
   # Nix settings that should one day become useless hopefully.
-  # Allows you run 'nix flake update' to update flake.lock file.
+  # Allows you to run various commands.
+  # For example: 'nix flake update' to update flake.lock file.
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
