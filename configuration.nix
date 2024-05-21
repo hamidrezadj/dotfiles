@@ -549,13 +549,11 @@ in
   #};
 
   # Automatically collect garbage packages
-  nix = {
-    optimise.automatic = nixStoreOptimiseAutomatic;
-    gc = {
-      automatic = nixGCAutomatic;
-      dates = nixGCFrequency;
-      options = nixGCOptions;
-    };
+  nix.optimise.automatic = nixStoreOptimiseAutomatic;
+  nix.gc = {
+    automatic = nixGCAutomatic;
+    dates = nixGCFrequency;
+    options = nixGCOptions;
   };
 
   # Nix settings that should one day become useless hopefully.
