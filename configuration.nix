@@ -564,6 +564,10 @@ in
     "flakes"
   ];
 
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
   # List services that you want to enable:
 
   services.tor.enable = true;
