@@ -61,8 +61,8 @@ in
       "space_cache=v2"
       "subvol=@home"
     ];
-    # This is required because the password file is stores in this fs.
-    neededForBoot = true;
+    # This is required if the password file is stored in this subvolume.
+    # neededForBoot = true;
   };
 
   fileSystems."/nix" = {
