@@ -350,6 +350,7 @@ in
       };
 
       dconf.settings = with lib.hm.gvariant; {
+        "org/gnome/settings-daemon/plugins/power".sleep-inactive-ac-type = "nothing";
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
         "org/gnome/desktop/peripherals/touchpad" = {
           edge-scrolling-enabled = false;
