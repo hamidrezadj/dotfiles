@@ -295,6 +295,7 @@ in
         denaro
         libreoffice
         foliate
+        xournalpp
         eza
         usbutils
         pciutils
