@@ -208,6 +208,15 @@ in
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.powerManagement.enable = true;
 
+  # To enable 555 nvidia drivers which enable explicit sync.
+  # Which solves the stuttering and blinking graphical bug in games.
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+  # This makes firefox on wayland to crash.
+  # So firefox is ran through XWayland instead.
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "0";
+  };
+
   # Enable opengl.
   hardware.opengl = {
     enable = true;
