@@ -305,6 +305,7 @@ in
         libreoffice
         foliate
         xournalpp
+        fzf
         eza
         usbutils
         pciutils
@@ -352,6 +353,7 @@ in
           '
         '';
         vault = "cd ~/Dropbox/Vault && hx .";
+        cdf = "cd $(find . -type d | fzf)";
       };
 
       home.file = {
