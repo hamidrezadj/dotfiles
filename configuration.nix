@@ -416,6 +416,7 @@ in
         '';
         vault = "cd ~/Dropbox/Vault && hx .";
         cdf = "cd $(find . -type d 2>/dev/null | fzf)";
+        cdfr = "cd $(find / -type d 2>/dev/null | fzf)";
       };
 
       home.file = {
