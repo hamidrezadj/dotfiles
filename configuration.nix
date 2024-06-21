@@ -417,6 +417,7 @@ in
         vault = "cd ~/Dropbox/Vault && hx .";
         cdf = "cd $(find . -type d 2>/dev/null | fzf)";
         cdfr = "cd $(find / -type d 2>/dev/null | fzf)";
+        lpkgs = "nix-store -q --references /var/run/current-system/sw";
       };
 
       home.file = {
