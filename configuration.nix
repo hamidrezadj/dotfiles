@@ -218,11 +218,10 @@ in
     MOZ_ENABLE_WAYLAND = "0";
   };
 
-  # Enable opengl.
-  hardware.opengl = {
+  # Enable graphics.
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Enable sound.
