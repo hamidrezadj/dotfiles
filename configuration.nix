@@ -306,6 +306,7 @@ in
         libreoffice
         foliate
         xournalpp
+        vlc
         distrobox
         fzf
         eza
