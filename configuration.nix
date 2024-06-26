@@ -307,6 +307,7 @@ in
         foliate
         xournalpp
         vlc
+        gimp
         distrobox
         fzf
         eza
