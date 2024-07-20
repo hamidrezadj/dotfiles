@@ -225,7 +225,6 @@ in
   };
 
   # Enable sound.
-  sound.enable = true;
   hardware.pulseaudio.enable = true;
   # Enable keyboard media keys (handled by Gnome)
   # sound.mediaKeys.enable = true;
@@ -322,7 +321,7 @@ in
         mangohud
         gnomeExtensions.appindicator
         gnomeExtensions.persian-calendar
-        gnome.dconf-editor
+        dconf-editor
         taplo
 
         xclicker
@@ -649,6 +648,11 @@ in
 
   services.tor.enable = true;
   services.tor.client.enable = true;
+  # services.tor.settings = {
+  #   UseBridges = true;
+  #   ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
+  #   Bridge = "obfs4 IP:ORPort [fingerprint]";
+  # };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
