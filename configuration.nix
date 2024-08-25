@@ -327,6 +327,7 @@ in
         dconf-editor
         taplo
         obs-studio
+        qbittorrent
 
         xclicker
         (pkgs.buildFHSUserEnv {
