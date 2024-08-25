@@ -226,6 +226,9 @@ in
 
   # Enable sound.
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.extraConfig = "load-module module-echo-cancel";
+  programs.noisetorch.enable = true;
+  # services.pipewire.enable = true;
   # Enable keyboard media keys (handled by Gnome)
   # sound.mediaKeys.enable = true;
 
