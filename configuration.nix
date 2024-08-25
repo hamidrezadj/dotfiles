@@ -324,6 +324,8 @@ in
         taplo
         obs-studio
         qbittorrent
+        p7zip
+        rar
 
         xclicker
         (pkgs.buildFHSUserEnv {
