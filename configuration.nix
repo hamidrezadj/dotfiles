@@ -326,6 +326,7 @@ in
         gnomeExtensions.persian-calendar
         dconf-editor
         taplo
+        obs-studio
 
         xclicker
         (pkgs.buildFHSUserEnv {
