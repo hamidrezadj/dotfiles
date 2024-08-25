@@ -324,7 +324,6 @@ in
         taplo
         obs-studio
         qbittorrent
-        peazip
 
         xclicker
         (pkgs.buildFHSUserEnv {
