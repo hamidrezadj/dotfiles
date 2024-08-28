@@ -275,6 +275,7 @@ in
   programs.git.enable = true;
   programs.dconf.enable = true;
   programs.appimage.enable = true;
+  programs.gamescope.enable = true;
   # programs.steam.enable = true;
   # programs.steam.gamescopeSession.enable = true;
   # programs.gamemode.enable = true;
