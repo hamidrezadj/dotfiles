@@ -210,9 +210,9 @@ in
   hardware.nvidia.powerManagement.enable = true;
 
   # With current nvidia drivers, Firefox on Wayland is unstable.
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "0";
-  };
+  # environment.sessionVariables = {
+  #   MOZ_ENABLE_WAYLAND = "0";
+  # };
 
   # Enable graphics.
   hardware.graphics = {
