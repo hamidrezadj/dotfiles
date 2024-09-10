@@ -327,6 +327,7 @@ in
         qbittorrent
         p7zip
         rar
+        musescore
 
         xclicker
         (pkgs.buildFHSUserEnv {
