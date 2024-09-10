@@ -328,6 +328,7 @@ in
         p7zip
         rar
         musescore
+        picard
 
         xclicker
         (pkgs.buildFHSUserEnv {
