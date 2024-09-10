@@ -203,7 +203,7 @@ in
   services.printing.enable = true;
 
   # Enable nvidia free driver.
-  # hardware.nvidia.open = true;
+  hardware.nvidia.open = false;
   # Enable nvidia propriety driver.
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.modesetting.enable = true;
