@@ -340,6 +340,7 @@ in
         rar
         musescore
         picard
+        tun2socks
 
         xclicker
         (pkgs.buildFHSUserEnv {
