@@ -332,6 +332,7 @@ in
         bat
         lazygit
         lutris
+        bottles
         mangohud
         gnomeExtensions.appindicator
         gnomeExtensions.persian-calendar
