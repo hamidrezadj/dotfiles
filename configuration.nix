@@ -196,7 +196,7 @@ in
     with pkgs;
     [
       borna-fonts
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      nerd-fonts.fira-code
     ];
 
   # Enable CUPS to print documents.
