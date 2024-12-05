@@ -342,7 +342,6 @@ in
         qbittorrent
         p7zip
         rar
-        musescore
         picard
         tun2socks
 
