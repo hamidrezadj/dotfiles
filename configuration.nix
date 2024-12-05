@@ -290,6 +290,9 @@ in
   # programs.steam.enable = true;
   # programs.steam.gamescopeSession.enable = true;
   # programs.gamemode.enable = true;
+  # services.clamav.scanner.enable = true;
+  # services.clamav.updater.enable = true;
+  # services.clamav.daemon.enable = true;
 
   programs.git.config = {
     init.defaultBranch = "main";
