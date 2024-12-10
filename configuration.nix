@@ -406,6 +406,7 @@ in
         rar
         picard
         tun2socks
+        dust
         mumble
 
         xclicker
