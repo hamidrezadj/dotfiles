@@ -408,6 +408,7 @@ in
         tun2socks
         dust
         mumble
+        helvum
 
         xclicker
         (pkgs.buildFHSUserEnv {
