@@ -244,6 +244,51 @@ in
       }
     ];
   };
+  services.pipewire.extraConfig.pipewire."97-null-sink" = {
+    "context.objects" = [
+      {
+        factory = "adapter";
+        args = {
+          "factory.name" = "support.null-audio-sink";
+          "node.name" = "Null-Sink";
+          "node.description" = "Null Sink";
+          "media.class" = "Audio/Sink";
+          "audio.position" = "FL,FR";
+        };
+      }
+      {
+        factory = "adapter";
+        args = {
+          "factory.name" = "support.null-audio-sink";
+          "node.name" = "Null-Source";
+          "node.description" = "Null Source";
+          "media.class" = "Audio/Source";
+          "audio.position" = "FL,FR";
+        };
+      }
+    ];
+  };
+  services.pipewire.extraConfig.pipewire."98-virtual-mic" = {
+    "context.modules" = [
+      {
+        name = "libpipewire-module-loopback";
+        args = {
+          "audio.position" = "FL,FR";
+          "node.description" = "Mumble as Microphone";
+          "capture.props" = {
+            # Mumble's output node name.
+            "node.target" = "Mumble";
+            "node.passive" = true;
+          };
+          "playback.props" = {
+            "node.name" = "Virtual-Mumble-Microphone";
+            "media.class" = "Audio/Source";
+          };
+        };
+      }
+    ];
+  };
+
   # Enable keyboard media keys (handled by Gnome)
   # sound.mediaKeys.enable = true;
 
@@ -302,6 +347,15 @@ in
   # services.clamav.updater.enable = true;
   # services.clamav.daemon.enable = true;
 
+  # Mumble server.
+  services.murmur = {
+    enable = true;
+    bandwidth = 540000;
+    bonjour = true;
+    password = user.mumblePassword;
+    autobanTime = 0;
+  };
+
   programs.git.config = {
     init.defaultBranch = "main";
     core.editor = "hx";
@@ -352,6 +406,7 @@ in
         rar
         picard
         tun2socks
+        mumble
 
         xclicker
         (pkgs.buildFHSUserEnv {
@@ -687,8 +742,14 @@ in
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    # Mumble Murmur server port
+    64738
+  ];
+  networking.firewall.allowedUDPPorts = [
+    # Mumble Murmur server port
+    64738
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
