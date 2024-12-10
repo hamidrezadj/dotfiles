@@ -221,6 +221,15 @@ in
   };
 
   # Enable sound.
+  # security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
   # Noise canceling module for pipewire pulseaudio emulation.
   services.pipewire.extraConfig.pipewire-pulse."99-echo-cancle" = {
     "context.modules" = [
@@ -235,7 +244,6 @@ in
       }
     ];
   };
-  # services.pipewire.enable = true;
   # Enable keyboard media keys (handled by Gnome)
   # sound.mediaKeys.enable = true;
 
