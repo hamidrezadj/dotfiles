@@ -231,7 +231,7 @@ in
     #jack.enable = true;
   };
   # Noise canceling module for pipewire pulseaudio emulation.
-  services.pipewire.extraConfig.pipewire-pulse."99-echo-cancle" = {
+  services.pipewire.extraConfig.pipewire-pulse."99-echo-cancel" = {
     "context.modules" = [
       {
         name = "libpipewire-module-echo-cancel";
