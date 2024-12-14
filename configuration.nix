@@ -719,6 +719,12 @@ in
   #  channel = "https://nixos.org/channels/nixos-unstable";
   #};
 
+  # Limit systemd logs size
+  services.journald.extraConfig = ''
+    SystemMaxUse=1G
+    SystemMaxFileSize=100M
+  '';
+
   # Automatically collect garbage packages
   nix.optimise.automatic = nixStoreOptimiseAutomatic;
   nix.gc = {
