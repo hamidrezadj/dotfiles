@@ -347,6 +347,14 @@ in
   # services.clamav.updater.enable = true;
   # services.clamav.daemon.enable = true;
 
+  services.tor.enable = true;
+  services.tor.client.enable = true;
+  # services.tor.settings = {
+  #   UseBridges = true;
+  #   ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
+  #   Bridge = "obfs4 IP:ORPort [fingerprint]";
+  # };
+
   # Mumble server.
   services.murmur = {
     enable = true;
@@ -409,6 +417,7 @@ in
         dust
         mumble
         helvum
+        easytag
 
         xclicker
         (pkgs.buildFHSUserEnv {
@@ -730,15 +739,6 @@ in
     "root"
     "@wheel"
   ];
-  # List services that you want to enable:
-
-  services.tor.enable = true;
-  services.tor.client.enable = true;
-  # services.tor.settings = {
-  #   UseBridges = true;
-  #   ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
-  #   Bridge = "obfs4 IP:ORPort [fingerprint]";
-  # };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
