@@ -398,6 +398,9 @@ in
     # core.autocrlf = "input";
   };
 
+  # Enable Android debug bridge.
+  programs.adb.enable = true;
+
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.users.${user.userName} =
