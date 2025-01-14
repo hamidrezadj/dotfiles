@@ -230,6 +230,33 @@ in
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+  # Increase latency to prevent crackling and drop (underruns)
+  # services.pipewire.extraConfig.pipewire."92-low-latency" = {
+  #   "context.properties" = {
+  #     "default.clock.rate" = 48000;
+  #     "default.clock.quantum" = 128;
+  #     "default.clock.min-quantum" = 128;
+  #     "default.clock.max-quantum" = 1024;
+  #   };
+  # };
+  # services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
+  #   context.modules = [
+  #     {
+  #       name = "libpipewire-module-protocol-pulse";
+  #       args = {
+  #         pulse.min.req = "128/48000";
+  #         pulse.default.req = "128/48000";
+  #         pulse.max.req = "1024/48000";
+  #         pulse.min.quantum = "128/48000";
+  #         pulse.max.quantum = "1024/48000";
+  #       };
+  #     }
+  #   ];
+  #   stream.properties = {
+  #     node.latency = "128/48000";
+  #     resample.quality = 1;
+  #   };
+  # };
   # Noise canceling module for pipewire pulseaudio emulation.
   services.pipewire.extraConfig.pipewire-pulse."99-echo-cancel" = {
     "context.modules" = [
