@@ -448,6 +448,7 @@ in
         mumble
         helvum
         easytag
+        scrcpy
 
         xclicker
         (pkgs.buildFHSUserEnv {
