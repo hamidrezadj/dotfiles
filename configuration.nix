@@ -449,6 +449,7 @@ in
         helvum
         easytag
         kdenlive
+        wl-clipboard
         scrcpy
 
         xclicker
