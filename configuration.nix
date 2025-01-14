@@ -258,19 +258,19 @@ in
   #   };
   # };
   # Noise canceling module for pipewire pulseaudio emulation.
-  services.pipewire.extraConfig.pipewire-pulse."99-echo-cancel" = {
-    "context.modules" = [
-      {
-        name = "libpipewire-module-echo-cancel";
-        args = {
-          "library.name" = "aec/libspa-aec-webrtc";
-          "capture.props" = {
-            "node.name" = "alsa_card.pci-0000_00_1f.3";
-          };
-        };
-      }
-    ];
-  };
+  # services.pipewire.extraConfig.pipewire-pulse."99-echo-cancel" = {
+  #   "context.modules" = [
+  #     {
+  #       name = "libpipewire-module-echo-cancel";
+  #       args = {
+  #         "library.name" = "aec/libspa-aec-webrtc";
+  #         "capture.props" = {
+  #           "node.name" = "alsa_card.pci-0000_00_1f.3";
+  #         };
+  #       };
+  #     }
+  #   ];
+  # };
   services.pipewire.extraConfig.pipewire."97-null-sink" = {
     "context.objects" = [
       {
