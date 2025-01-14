@@ -517,6 +517,11 @@ in
       };
 
       programs.freetube.enable = true;
+      programs.git = {
+        enable = true;
+        userName = user.gitUser;
+        userEmail = user.gitEmail;
+      };
       programs.bash.enable = true;
       programs.nushell.enable = true;
       programs.starship.enable = true;
