@@ -448,6 +448,7 @@ in
         mumble
         helvum
         easytag
+        kdenlive
         scrcpy
 
         xclicker
