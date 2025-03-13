@@ -448,7 +448,7 @@ in
         mumble
         helvum
         easytag
-        kdenlive
+        kdePackages.kdenlive
         wl-clipboard
         scrcpy
 
