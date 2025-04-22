@@ -451,8 +451,6 @@ in
         kdePackages.kdenlive
         wl-clipboard
         scrcpy
-
-        xclicker
       ];
 
       nix.gc = {
