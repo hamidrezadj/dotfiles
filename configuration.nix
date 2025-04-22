@@ -453,63 +453,6 @@ in
         scrcpy
 
         xclicker
-        (pkgs.buildFHSUserEnv {
-          name = "minecraft";
-          targetPkgs =
-            pkgs: with pkgs; [
-              # Launcher dependencies
-              # zlib
-              qt5.qtbase
-
-              # Minecraft dependencies
-              openjdk17-bootstrap
-              libGL
-              # xorg.libX11
-              # alsa-lib
-              # flite
-
-              # Minecraft package environment libraries
-              curl
-              libpulseaudio
-              systemd
-              alsa-lib # needed for narrator
-              flite # needed for narrator
-              # libXxf86vm # needed only for versions <1.13
-
-              # Minecraft package libraries
-              alsa-lib
-              atk
-              cairo
-              cups
-              dbus
-              expat
-              fontconfig
-              freetype
-              gdk-pixbuf
-              glib
-              pango
-              gtk3-x11
-              gtk2-x11
-              nspr
-              nss
-              stdenv.cc.cc
-              zlib
-              libuuid
-              xorg.libX11
-              xorg.libxcb
-              xorg.libXcomposite
-              xorg.libXcursor
-              xorg.libXdamage
-              xorg.libXext
-              xorg.libXfixes
-              xorg.libXi
-              xorg.libXrandr
-              xorg.libXrender
-              xorg.libXtst
-              xorg.libXScrnSaver
-            ];
-          runScript = "/usr/bin/env bash -c ${userDirectory}/Games/Minecraft/MultiMC";
-        })
       ];
 
       nix.gc = {
