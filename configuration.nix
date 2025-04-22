@@ -459,7 +459,6 @@ in
         options = nixGCOptions;
       };
 
-      programs.freetube.enable = true;
       programs.git = {
         enable = true;
         userName = user.gitUser;
