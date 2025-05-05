@@ -431,7 +431,6 @@ in
         tldr
         bat
         lazygit
-        lutris
         bottles
         mangohud
         gnomeExtensions.appindicator
@@ -451,6 +450,12 @@ in
         kdePackages.kdenlive
         wl-clipboard
         scrcpy
+
+        wineWowPackages.stable
+        winetricks
+        protonup-ng
+        lutris
+        umu-launcher
       ];
 
       nix.gc = {
