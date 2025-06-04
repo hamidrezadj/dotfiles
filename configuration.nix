@@ -763,6 +763,12 @@ in
     };
   };
 
+  # Enable virtual machines
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "hamid" ];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # Useful other development tools
   # environment.systemPackages = with pkgs; [
   #  dive # look into docker image layers
