@@ -16,7 +16,7 @@ let
   nixGCAutomatic = true;
   nixGCFrequency = "weekly";
   nixGCOptions = "--delete-older-than 14d";
-  userDirectory = "/home/" + user.userName;
+  # userDirectory = "/home/" + user.userName;
   userMusicDirectory = "/home/" + user.userName + "/Music";
   userGamesInstallationFilesDirectory = "/home/" + user.userName + "/Games/HDD";
   userBackupDirectory = "/home/" + user.userName + "/Backup";
