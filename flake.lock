@@ -46,8 +46,8 @@
     },
     "user": {
       "locked": {
-        "lastModified": 1734328178,
-        "narHash": "sha256-wlUHimdsOVtRhcVkYRx7dQgeHxRB17++hcemM4GhreI=",
+        "lastModified": 1749049203,
+        "narHash": "sha256-5IVpxo02CUDyDryRK1OldGKsN5oSkJx3uJrWl5M4D/Y=",
         "path": "/etc/nixos/user",
         "type": "path"
       },
