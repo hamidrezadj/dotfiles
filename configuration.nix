@@ -432,7 +432,6 @@ in
         bat
         lazygit
         bottles
-        mangohud
         gnomeExtensions.appindicator
         gnomeExtensions.persian-calendar
         dconf-editor
@@ -464,6 +463,13 @@ in
         options = nixGCOptions;
       };
 
+      programs.mangohud = {
+        enable = true;
+        settings = {
+          cpu_temp = true;
+          gpu_temp = true;
+        };
+      };
       programs.git = {
         enable = true;
         userName = user.gitUser;
