@@ -357,7 +357,7 @@ in
         lg = "lazygit";
         sudo = "sudo ";
         noscd = "cd ${dotFilesDirectory}";
-        nosug = "nixos-rebuild switch --flake ${dotFilesDirectory}";
+        nosug = "nixos-rebuild switch --flake ${dotFilesDirectory}#${user.hostName}";
         nosud = ''
           /usr/bin/env bash -c '
             cd ${dotFilesDirectory} &&
