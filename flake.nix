@@ -1,5 +1,5 @@
 {
-  description = "This flake describes my personal system configuration.";
+  description = "This flake describes my personal systems configurations.";
 
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
