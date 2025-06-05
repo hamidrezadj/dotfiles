@@ -20,7 +20,7 @@ let
 in
 {
   imports = [
-    ./orca.nix
+    ./${user.hostName}.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
