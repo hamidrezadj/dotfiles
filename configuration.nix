@@ -274,7 +274,7 @@ in
   home-manager.users.${user.userName} =
     { lib, pkgs, ... }:
     {
-      home.stateVersion = "23.11";
+      home.stateVersion = user.stateVersion;
 
       home.packages = with pkgs; [
         firefox
@@ -667,5 +667,5 @@ in
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = user.stateVersion; # Did you read the comment?
 }
