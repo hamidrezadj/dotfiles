@@ -10,12 +10,12 @@ Either use a wired connection through ethernet or usb tether, or use wpa_supplic
 sudo systemctl start wpa_supplicant
 wpa_cli
 # Run the following commands in the interactive shell.
-# scan
-# scan_results
-# add_network
-# set_network 0 ssid "network_ssid"
-# set_network 0 psk "network_password"
-# enable_network 0
+scan
+scan_results
+add_network
+set_network 0 ssid "network_ssid"
+set_network 0 psk "network_password"
+enable_network 0
 
 # Manually configure ip addresses
 ip address show
