@@ -20,12 +20,12 @@ enable_network 0
 # Manually configure ip addresses
 ip address show
 ip address flush dev interface_name(wlp12s0)
-ip address add new_ip/prefix_len(192.168.42.215/16) broadcast + dev interface_name
+ip address add new_ip/prefix_len(192.168.43.215/16) broadcast + dev interface_name
 
 # Manually configure ip routes
 ip route show
 ip route del PREFIX
-ip route add default via gateway_address(192.168.42.1/16) dev interface_name
+ip route add default via gateway_address(192.168.43.1) dev interface_name
 
 # Manually configure name resolver
 echo "nameserver 9.9.9.9" > resolv.conf
