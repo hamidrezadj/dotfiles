@@ -362,8 +362,7 @@ in
           nix flake update \
           --flake ${dotFilesDirectory} \
           --output-lock-file ./${user.hostName}.lock \
-          --reference-lock-file ./${user.hostName}.lock
-        '';
+          --reference-lock-file ./${user.hostName}.lock'';
         # nosud = ''
         #   /usr/bin/env bash -c '
         #     cd ${dotFilesDirectory} &&
