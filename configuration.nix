@@ -359,14 +359,20 @@ in
         noscd = "cd ${dotFilesDirectory}";
         nosug = "nixos-rebuild switch --flake ${dotFilesDirectory}#${user.hostName}";
         nosud = ''
-          /usr/bin/env bash -c '
-            cd ${dotFilesDirectory} &&
-            [[ -z $(git status --porcelain) ]] &&
-            nix flake update &&
-            git add flake.lock &&
-            git commit -m "Update flake.lock file"
-          '
+          nix flake update \
+          --flake ${dotFilesDirectory} \
+          --output-lock-file ./${user.hostName}.lock \
+          --reference-lock-file ./${user.hostName}.lock
         '';
+        # nosud = ''
+        #   /usr/bin/env bash -c '
+        #     cd ${dotFilesDirectory} &&
+        #     [[ -z $(git status --porcelain) ]] &&
+        #     nix flake update &&
+        #     git add flake.lock &&
+        #     git commit -m "Update flake.lock file"
+        #   '
+        # '';
         vault = "cd ~/Dropbox/Vault && hx .";
         cdf = "cd $(find . -type d 2>/dev/null | fzf)";
         cdfr = "cd $(find / -type d 2>/dev/null | fzf)";
