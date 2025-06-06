@@ -37,7 +37,7 @@ Now that there is internet access, it is possible to add some packages that can 
 nix-shell -p zellij git
 ```
 ### Disk Partition and Formatting
-Here's and example using fdisk:
+Here's an example using fdisk:
 ```sh
 lsblk
 sudo fdisk /dev/nvme0n1
