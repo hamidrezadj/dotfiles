@@ -98,7 +98,7 @@ sudo mkdir -p /mnt/etc/nixos
 # Nixos default normal user has uid 1000 (nixos) and gid 100 (users).
 sudo chown 1000:100 /mnt/etc/nixos
 cd /mnt/etc/nixos
-# Nixos install environment has that normal user as default.
+# Nixos install environment has that normal user as default, so proceed with:
 git clone https://github.com/hamidrezadj/dotfiles.git
 git clone https://github.com/hamidrezadj/user_flake_template.git
 # But if there's need to make one, here's how:
