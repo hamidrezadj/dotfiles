@@ -107,4 +107,17 @@ sudo -iu nixos
 git clone https://github.com/hamidrezadj/dotfiles.git
 git clone https://github.com/hamidrezadj/user_flake_template.git
 exit
+
 ```
+
+## Updating the system
+For minor updates the following command aliases can be used:
+```sh
+# Updating hostName.lock file to update flake inputs
+nosud
+# Only updating the user information input
+nosud user
+# Upgrading or modifying the system
+sudo nosug
+```
+For major updates, the inputs of `flake.nix` file in dotfiles repository should be modified.
