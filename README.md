@@ -93,7 +93,7 @@ sudo mount -o subvol=/@home /dev/disk/by-label/main /mnt/home
 sudo mount -o umask=077 /dev/disk/by-label/efi /mnt/boot
 sudo swapon /dev/disk/by-label/swap
 
-# Clone Git repository
+# Clone Git repositories
 sudo mkdir -p /mnt/etc/nixos
 # Nixos default normal user has uid 1000 (nixos) and gid 100 (users).
 sudo chown 1000:100 /mnt/etc/nixos
