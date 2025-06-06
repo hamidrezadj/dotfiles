@@ -5,7 +5,7 @@
     stable.url = "github:NixOs/nixpkgs/nixos-25.05";
     stableHome.url = "github:nix-community/home-manager/release-25.05";
     stableHome.inputs.nixpkgs.follows = "stable";
-    # unstabe.url = "github:NixOs/nixpkgs/nixos-unstable";
+    # unstable.url = "github:NixOs/nixpkgs/nixos-unstable";
     # unstableHome.url = "github:nix-community/home-manager/master";
     # unstableHome.inputs.nixpkgs.follows = "unstable";
     user.url = "/etc/nixos/user";
