@@ -230,6 +230,7 @@ in
     tree
     exfat
     gparted
+    lazygit
   ];
   programs.git.enable = true;
   programs.dconf.enable = true;
@@ -298,7 +299,6 @@ in
         glxinfo
         tldr
         bat
-        lazygit
         bottles
         gnomeExtensions.appindicator
         gnomeExtensions.persian-calendar
