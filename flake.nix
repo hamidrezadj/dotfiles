@@ -2,21 +2,38 @@
   description = "This flake describes my personal systems configurations.";
 
   inputs = {
-    nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stable.url = "github:NixOs/nixpkgs/nixos-25.05";
+    stableHome.url = "github:nix-community/home-manager/release-25.05";
+    stableHome.inputs.nixpkgs.follows = "stable";
+    # unstabe.url = "github:NixOs/nixpkgs/nixos-unstable";
+    # unstableHome.url = "github:nix-community/home-manager/master";
+    # unstableHome.inputs.nixpkgs.follows = "unstable";
     user.url = "/etc/nixos/user";
   };
 
   outputs =
     {
       self,
-      nixpkgs,
-      home-manager,
+      stable,
+      stableHome,
+      # unstable,
+      # unstableHome,
       user,
     }:
     let
       system = "x86_64-linux";
+      nixpkgs =
+        {
+          "stable" = stable;
+          # "unstable" = unstable;
+        }
+        ."${user.nixosVersion}";
+      home-manager =
+        {
+          "stable" = stableHome;
+          # "unstable" = unstableHome;
+        }
+        ."${user.nixosVersion}";
       borna-fonts-src = {
         url = "http://www.bornaray.com/Content/downloads/bfonts.zip";
         hash = "sha256-nwD00FL6DHkkCok0p3U7g+Ub93Tr8ByJnc5rmWgfLew=";
