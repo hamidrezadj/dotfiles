@@ -118,6 +118,8 @@ vim /mnt/etc/nixos/dotfiles/hostName.nix
 vim /mnt/etc/nixos/dotfiles/configuration.nix
 # Update and configure the lock file
 nix flake update \
+  --extra-experimental-features nix-command \
+  --extra-experimental-features flakes \
   --flake /mnt/etc/nixos/dotfiles \
   --output-lock-file /mnt/etc/nixos/dotfiles/hostName.lock \
   --reference-lock-file /mnt/etc/nixos/dotfiles/hostName.lock
