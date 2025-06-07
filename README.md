@@ -140,3 +140,8 @@ nosud user
 sudo nosug
 ```
 For major updates, the inputs of `flake.nix` file in dotfiles repository should be modified.
+
+## Logins
+- firefox
+- thunderbird
+- maestral (dropbox)
