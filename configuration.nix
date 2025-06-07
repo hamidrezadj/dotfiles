@@ -214,17 +214,6 @@ in
     # packages = with pkgs; [ ];
   };
 
-  environment.shellAliases = {
-    lg = "lazygit";
-    noscd = "cd ${dotFilesDirectory}";
-    nosug = "nixos-rebuild switch --flake ${dotFilesDirectory}#${user.hostName}";
-    nosud = ''
-      nix flake update \
-      --flake ${dotFilesDirectory} \
-      --output-lock-file ${dotFilesDirectory}/${user.hostName}.lock \
-      --reference-lock-file ${dotFilesDirectory}/${user.hostName}.lock'';
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -364,11 +353,20 @@ in
       programs.direnv.enable = true;
       programs.direnv.enableNushellIntegration = true;
       programs.bash.shellAliases = {
+        lg = "lazygit";
+        noscd = "cd ${dotFilesDirectory}";
+        nosug = "nixos-rebuild switch --flake ${dotFilesDirectory}#${user.hostName}";
+        nosud = ''
+          nix flake update \
+          --flake ${dotFilesDirectory} \
+          --output-lock-file ${dotFilesDirectory}/${user.hostName}.lock \
+          --reference-lock-file ${dotFilesDirectory}/${user.hostName}.lock'';
+
         ll = "ls -l";
         lla = "ls -lha";
         eza = "eza --icons --group-directories-first --git --git-repos --header --long";
         ezaa = "eza --icons --group-directories-first --git --git-repos --header --long --all";
-        # sudo = "sudo ";
+        sudo = "sudo ";
         vault = "cd ~/Dropbox/Vault && hx .";
         cdf = "cd $(find . -type d 2>/dev/null | fzf)";
         cdfr = "cd $(find / -type d 2>/dev/null | fzf)";
