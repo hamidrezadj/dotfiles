@@ -220,17 +220,13 @@ in
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     neovim
     helix
-    nil
-    nixfmt-rfc-style
     wget
     curl
     neofetch
     ripgrep
+    fzf
     htop
     tree
-    exfat
-    gparted
-    lazygit
   ];
 
   programs.dconf.enable = true;
@@ -242,7 +238,6 @@ in
   # services.clamav.scanner.enable = true;
   # services.clamav.updater.enable = true;
   # services.clamav.daemon.enable = true;
-
   services.tor.enable = true;
   services.tor.client.enable = true;
   # services.tor.settings = {
@@ -290,7 +285,6 @@ in
         vlc
         gimp
         distrobox
-        fzf
         eza
         usbutils
         pciutils
@@ -316,6 +310,11 @@ in
         kdePackages.kdenlive
         wl-clipboard
         scrcpy
+        exfat
+        gparted
+        lazygit
+        nil
+        nixfmt-rfc-style
 
         wineWowPackages.stable
         winetricks
