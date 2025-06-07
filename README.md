@@ -39,8 +39,9 @@ nix-shell -p zellij git
 ### Disk Partition and Formatting
 Here's an example using fdisk:
 ```sh
+sudo -i
 lsblk
-sudo fdisk /dev/nvme0n1
+fdisk /dev/nvme0n1
 # GPT partition table
 g
 # EFI partition
@@ -68,35 +69,37 @@ n
 w
 
 # Format the partitions
-sudo mkfs.fat -F 32 -n efi /dev/nvme0n1p1
-sudo mkswap -L swap /dev/nvme0n1p2
-sudo mkfs.btrfs -L main /dev/nvme0n1p3
+mkfs.fat -F 32 -n efi /dev/nvme0n1p1
+mkswap -L swap /dev/nvme0n1p2
+mkfs.btrfs -L main /dev/nvme0n1p3
 
 # Create BTRFS subvolumes
-sudo mount /dev/disk/by-label/main /mnt
+mount /dev/disk/by-label/main /mnt
 cd /mnt
-sudo btrfs subvolume create @
-sudo btrfs subvolume create @home
-sudo btrfs subvolume create @nix
+btrfs subvolume create @
+btrfs subvolume create @home
+btrfs subvolume create @nix
 cd ~
-sudo umount /mnt
+umount /mnt
 ```
+
 ### Installation
 ```sh
+sudo -i
 # Mount the filesystems
-sudo mount -o subvol=/@ /dev/disk/by-label/main /mnt
-sudo mkdir -p /mnt/nix
-sudo mkdir -p /mnt/home
-sudo mkdir -p /mnt/boot
-sudo mount -o subvol=/@nix /dev/disk/by-label/main /mnt/nix
-sudo mount -o subvol=/@home /dev/disk/by-label/main /mnt/home
-sudo mount -o umask=077 /dev/disk/by-label/efi /mnt/boot
-sudo swapon /dev/disk/by-label/swap
+mount -o subvol=/@ /dev/disk/by-label/main /mnt
+mkdir -p /mnt/nix
+mkdir -p /mnt/home
+mkdir -p /mnt/boot
+mount -o subvol=/@nix /dev/disk/by-label/main /mnt/nix
+mount -o subvol=/@home /dev/disk/by-label/main /mnt/home
+mount -o umask=077 /dev/disk/by-label/efi /mnt/boot
+swapon /dev/disk/by-label/swap
 
 # Clone Git repositories
-sudo mkdir -p /mnt/etc/nixos
 # Nixos default normal user has uid 1000 (nixos) and gid 100 (users).
 sudo chown 1000:100 /mnt/etc/nixos
+mkdir -p /mnt/etc/nixos
 cd /mnt/etc/nixos
 # Nixos install environment has that normal user as default, so proceed with:
 git clone https://github.com/hamidrezadj/dotfiles.git
