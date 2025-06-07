@@ -270,6 +270,12 @@ in
     {
       home.stateVersion = user.stateVersion;
 
+      nix.gc = {
+        automatic = nixGCAutomatic;
+        frequency = nixGCFrequency;
+        options = nixGCOptions;
+      };
+
       home.packages = with pkgs; [
         firefox
         thunderbird
@@ -317,12 +323,6 @@ in
         lutris
         umu-launcher
       ];
-
-      nix.gc = {
-        automatic = nixGCAutomatic;
-        frequency = nixGCFrequency;
-        options = nixGCOptions;
-      };
 
       programs.mangohud = {
         enable = true;
