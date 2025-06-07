@@ -127,6 +127,10 @@ ln -s /mnt/etc/nixos/dotfiles/hostName.lock /mnt/etc/nixos/dotfiles/flake.lock
 # Install Nixos
 nixos-install --no-root-password --no-channel-copy \
   --flake /mnt/etc/nixos/dotfiles#hostName
+
+# After installation
+sudo mv /etc/nixos/dotfiles /home/userName/.config/dotfiles
+sudo chown -R userName:users /home/userName/.config/dotfiles
 ```
 
 ## Updating the system
