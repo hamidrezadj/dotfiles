@@ -16,7 +16,7 @@ let
   nixGCAutomatic = true;
   nixGCFrequency = "weekly";
   nixGCOptions = "--delete-older-than 14d";
-  dotFilesDirectory = "/home/${user.hostName}/.config/dotfiles";
+  dotFilesDirectory = "/home/${user.userName}/.config/dotfiles";
 in
 {
   imports = [
