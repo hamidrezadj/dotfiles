@@ -102,6 +102,31 @@ cd /mnt/etc/nixos
 git clone https://github.com/hamidrezadj/dotfiles.git
 git clone https://github.com/hamidrezadj/user_flake_template.git
 
+# Configure the system
+mv /mnt/etc/nixos/user_flake_template /mnt/etc/nixos/user
+# Configure user variables
+# Remember the hostName chosen.
+# Also if a nixosVersion other than "stable" is chosen,
+# it shoud be coordinated with the flake.nix file in dotfiles.
+vim /mnt/etc/nixos/user/flake.nix
+# Generate and configure hardware specefice code
+sudo nixos-generate-config --root /mnt
+rm /mnt/etc/nixos/configuration.nix
+mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/dotfiles/hostName.nix
+vim /mnt/etc/nixos/dotfiles/hostName.nix
+# Edit configuration file if necessary
+vim /mnt/etc/nixos/dotfiles/configuration.nix
+# Update and configure the lock file
+nix flake update \
+  --flake /mnt/etc/nixos/dotfiles \
+  --output-lock-file /mnt/etc/nixos/dotfiles/hostName.lock \
+  --reference-lock-file /mnt/etc/nixos/dotfiles/hostName.lock
+# nixos-install and nixos-rebuild don't support changing the flake.lock file
+ln -s /mnt/etc/nixos/dotfiles/hostName.lock /mnt/etc/nixos/dotfiles/flake.lock
+
+# Install Nixos
+nixos-install --no-root-password --no-channel-copy \
+  --flake /mnt/etc/nixos/dotfiles#hostName
 ```
 
 ## Updating the system
