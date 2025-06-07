@@ -260,16 +260,6 @@ in
     autobanTime = 0;
   };
 
-  programs.git.enable = true;
-  programs.git.config = {
-    init.defaultBranch = "main";
-    core.editor = "hx";
-    # Set autocrlf to true on windows, input or false on linux.
-    # core.autocrlf = "input";
-  };
-
-  programs.starship.enable = true;
-
   # Enable Android debug bridge.
   programs.adb.enable = true;
 
@@ -345,6 +335,12 @@ in
         enable = true;
         userName = user.gitUser;
         userEmail = user.gitEmail;
+        extraConfig = {
+          init.defaultBranch = "main";
+          core.editor = "hx";
+          # Set autocrlf to true on windows, input or false on linux.
+          # core.autocrlf = "input";
+        };
       };
       programs.bash.enable = true;
       programs.nushell.enable = true;
