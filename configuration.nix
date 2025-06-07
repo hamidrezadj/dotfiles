@@ -243,7 +243,7 @@ in
     gparted
     lazygit
   ];
-  programs.git.enable = true;
+
   programs.dconf.enable = true;
   programs.appimage.enable = true;
   programs.gamescope.enable = true;
@@ -271,12 +271,15 @@ in
     autobanTime = 0;
   };
 
+  programs.git.enable = true;
   programs.git.config = {
     init.defaultBranch = "main";
     core.editor = "hx";
     # Set autocrlf to true on windows, input or false on linux.
     # core.autocrlf = "input";
   };
+
+  programs.starship.enable = true;
 
   # Enable Android debug bridge.
   programs.adb.enable = true;
