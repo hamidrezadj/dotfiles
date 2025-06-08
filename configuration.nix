@@ -16,7 +16,9 @@ let
   nixGCAutomatic = true;
   nixGCFrequency = "weekly";
   nixGCOptions = "--delete-older-than 14d";
-  dotFilesDirectory = "/home/${user.userName}/.config/dotfiles";
+  homeDirectory = "/home/${user.userName}";
+  configDirectory = "${homeDirectory}/.config";
+  dotfilesDirectory = "${configDirectory}/dotfiles";
 in
 {
   imports = [
@@ -349,13 +351,13 @@ in
       programs.direnv.enableNushellIntegration = true;
       programs.bash.shellAliases = {
         lg = "lazygit";
-        noscd = "cd ${dotFilesDirectory}";
-        nosug = "nixos-rebuild switch --flake ${dotFilesDirectory}#${user.hostName}";
+        noscd = "cd ${dotfilesDirectory}";
+        nosug = "nixos-rebuild switch --flake ${dotfilesDirectory}#${user.hostName}";
         nosud = ''
           nix flake update \
-          --flake ${dotFilesDirectory} \
-          --output-lock-file ${dotFilesDirectory}/${user.hostName}.lock \
-          --reference-lock-file ${dotFilesDirectory}/${user.hostName}.lock'';
+          --flake ${dotfilesDirectory} \
+          --output-lock-file ${dotfilesDirectory}/${user.hostName}.lock \
+          --reference-lock-file ${dotfilesDirectory}/${user.hostName}.lock'';
 
         ll = "ls -l";
         lla = "ls -lha";
