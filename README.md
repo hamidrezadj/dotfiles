@@ -97,38 +97,50 @@ mount -o umask=077 /dev/disk/by-label/efi /mnt/boot
 swapon /dev/disk/by-label/swap
 
 # Clone Git repositories
-mkdir -p /mnt/etc/nixos
-cd /mnt/etc/nixos
+cd /etc/nixos
 git clone https://github.com/hamidrezadj/dotfiles.git
 git clone https://github.com/hamidrezadj/user_flake_template.git
 
 # Configure the system
-mv /mnt/etc/nixos/user_flake_template /mnt/etc/nixos/user
+mv user_flake_template user
 # Configure user variables
 # Remember the hostName chosen.
 # Also if a nixosVersion other than "stable" is chosen,
 # it shoud be coordinated with the flake.nix file in dotfiles.
-vim /mnt/etc/nixos/user/flake.nix
+vim user/flake.nix
 # Generate and configure hardware specefice code
-sudo nixos-generate-config --root /mnt
+nixos-generate-config --root /mnt
 rm /mnt/etc/nixos/configuration.nix
-mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/dotfiles/hostName.nix
-vim /mnt/etc/nixos/dotfiles/hostName.nix
+mv /mnt/etc/nixos/hardware-configuration.nix dotfiles/hostName.nix
+vim dotfiles/hostName.nix
 # Edit configuration file if necessary
-vim /mnt/etc/nixos/dotfiles/configuration.nix
+vim dotfiles/configuration.nix
+# Remove .gitignore file temporarily
+rm dotfiles/.gitignore
 # Update and configure the lock file
 nix flake update \
   --extra-experimental-features nix-command \
   --extra-experimental-features flakes \
-  --flake /mnt/etc/nixos/dotfiles \
-  --output-lock-file /mnt/etc/nixos/dotfiles/hostName.lock \
-  --reference-lock-file /mnt/etc/nixos/dotfiles/hostName.lock
+  --flake /etc/nixos/dotfiles \
+  --output-lock-file /etc/nixos/dotfiles/hostName.lock \
+  --reference-lock-file /etc/nixos/dotfiles/hostName.lock
 # nixos-install and nixos-rebuild don't support changing the flake.lock file
-ln -s /mnt/etc/nixos/dotfiles/hostName.lock /mnt/etc/nixos/dotfiles/flake.lock
+ln -s hostName.lock /etc/nixos/dotfiles/flake.lock
+# Add new files to repository
+cd dotfiles
+git add hostName.nix hostName.lock flake.lock
+cd ..
+
+# Make a copy to main storage so all configurations aren't lost
+mkdir -p /mnt/etc/nixos
+cp -r * /mnt/etc/nixos
 
 # Install Nixos
-nixos-install --no-root-password --no-channel-copy \
-  --flake /mnt/etc/nixos/dotfiles#hostName
+nixos-install \
+  --no-root-password \
+  --no-channel-copy \
+  --root /mnt \
+  --flake /etc/nixos/dotfiles#hostName
 
 # After installation
 sudo mv /etc/nixos/dotfiles /home/userName/.config/dotfiles
