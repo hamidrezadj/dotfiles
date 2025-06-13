@@ -98,38 +98,28 @@ swapon /dev/disk/by-label/swap
 
 # Clone Git repositories
 cd /etc/nixos
-git clone https://github.com/hamidrezadj/dotfiles.git
+git clone https://github.com/hamidrezadj/dotfiles_flake_template.git
 git clone https://github.com/hamidrezadj/user_flake_template.git
 
 # Configure the system
 mv user_flake_template user
+mv dotfiles_flake_template dotfiles
 # Configure user variables
-# Remember the hostName chosen.
-# Also if a nixosVersion other than "stable" is chosen,
-# it shoud be coordinated with the flake.nix file in dotfiles.
+# Remember the hostName chosen
 vim user/flake.nix
 # Generate and configure hardware specefice code
+rm dotfiles/hardware-configuration.nix
 nixos-generate-config --root /mnt
 rm /mnt/etc/nixos/configuration.nix
-mv /mnt/etc/nixos/hardware-configuration.nix dotfiles/hostName.nix
-vim dotfiles/hostName.nix
+mv /mnt/etc/nixos/hardware-configuration.nix dotfiles/hardware-configuration.nix
+vim dotfiles/hardware-configuration.nix
 # Edit configuration file if necessary
 vim dotfiles/configuration.nix
-# Remove .gitignore file temporarily
-rm dotfiles/.gitignore
 # Update and configure the lock file
 nix flake update \
   --extra-experimental-features nix-command \
   --extra-experimental-features flakes \
   --flake /etc/nixos/dotfiles \
-  --output-lock-file /etc/nixos/dotfiles/hostName.lock \
-  --reference-lock-file /etc/nixos/dotfiles/hostName.lock
-# nixos-install and nixos-rebuild don't support changing the flake.lock file
-ln -s hostName.lock /etc/nixos/dotfiles/flake.lock
-# Add new files to repository
-cd dotfiles
-git add hostName.nix hostName.lock flake.lock
-cd ..
 
 # Make a copy to main storage so all configurations aren't lost
 mkdir -p /mnt/etc/nixos
@@ -150,14 +140,14 @@ sudo chown -R userName:users /home/userName/.config/dotfiles
 ## Updating the system
 For minor updates the following command aliases can be used:
 ```sh
-# Updating hostName.lock file to update flake inputs
+# Updating flake.lock file to update flake inputs
 sudo nosud
 # Only updating the user information input
 sudo nosud user
 # Upgrading or modifying the system
 sudo nosug
 ```
-For major updates, the inputs of `flake.nix` file in dotfiles repository should be modified.
+For major updates (for example from 24.11 to 25.05), the inputs of `flake.nix` file in dotfiles repository should be modified.
 
 ## Logins
 - firefox

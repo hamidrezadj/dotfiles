@@ -3,15 +3,13 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {
-  # config,
-  # lib,
-  # modulesPath,
   pkgs,
   user,
   borna-fonts-src,
   ...
 }:
 let
+  stateVersion = "23.11";
   nixStoreOptimiseAutomatic = true;
   nixGCAutomatic = true;
   nixGCFrequency = "weekly";
@@ -22,7 +20,7 @@ let
 in
 {
   imports = [
-    ./${user.hostName}.nix
+    ./hardware-configuration.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -265,7 +263,7 @@ in
   home-manager.users.${user.userName} =
     { lib, pkgs, ... }:
     {
-      home.stateVersion = user.stateVersion;
+      home.stateVersion = stateVersion;
 
       nix.gc = {
         automatic = nixGCAutomatic;
@@ -353,11 +351,7 @@ in
         lg = "lazygit";
         noscd = "cd ${dotfilesDirectory}";
         nosug = "nixos-rebuild switch --flake ${dotfilesDirectory}#${user.hostName}";
-        nosud = ''
-          nix flake update \
-          --flake ${dotfilesDirectory} \
-          --output-lock-file ${dotfilesDirectory}/${user.hostName}.lock \
-          --reference-lock-file ${dotfilesDirectory}/${user.hostName}.lock'';
+        nosud = "nix flake update --flake ${dotfilesDirectory}";
 
         ll = "ls -l";
         lla = "ls -lha";
@@ -664,5 +658,5 @@ in
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = user.stateVersion; # Did you read the comment?
+  system.stateVersion = stateVersion; # Did you read the comment?
 }
