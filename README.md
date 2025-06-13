@@ -151,9 +151,9 @@ sudo chown -R userName:users /home/userName/.config/dotfiles
 For minor updates the following command aliases can be used:
 ```sh
 # Updating hostName.lock file to update flake inputs
-nosud
+sudo nosud
 # Only updating the user information input
-nosud user
+sudo nosud user
 # Upgrading or modifying the system
 sudo nosug
 ```
