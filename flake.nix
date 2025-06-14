@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
-    home-manager.inputs.nixpkgs.follows = "stable";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     user.url = "/etc/nixos/user";
   };
 
