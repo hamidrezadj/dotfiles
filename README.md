@@ -135,6 +135,13 @@ nixos-install \
 # After installation
 sudo mv /etc/nixos/dotfiles /home/userName/.config/dotfiles
 sudo chown -R userName:users /home/userName/.config/dotfiles
+
+cd /home/userName/.config/dotfiles
+git remote remove origin
+git remote add origin git@github.com:githubuser/dotfilesrepo
+git push -u origin main
+cd /etc/nixos/user
+sudo git remote remove origin
 ```
 
 ## Updating the system
