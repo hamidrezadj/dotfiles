@@ -160,3 +160,4 @@ For major updates (for example from 24.11 to 25.05), the inputs of `flake.nix` f
 - firefox
 - thunderbird
 - maestral (dropbox)
+- rclone

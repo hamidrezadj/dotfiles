@@ -315,7 +315,8 @@ in
         lazygit
         nil
         nixfmt-rfc-style
-        deja-dup
+        restic
+        rclone
 
         wineWowPackages.stable
         winetricks
